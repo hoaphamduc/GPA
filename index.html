@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Công Cụ Tính GPA Online Chính Xác - Điểm Trung Bình Học Tập</title>
+    <meta
+      name="description"
+      content="Công cụ tính GPA online miễn phí, nhanh chóng và chính xác. Nhập điểm môn học, số tín chỉ để tính điểm trung bình hệ 10, hệ 4 và xem xếp loại học lực. Hỗ trợ sinh viên Đại học Sư phạm Hà Nội (HNUE) và các trường khác."
+    />
+    <meta
+      name="keywords"
+      content="tính gpa, gpa calculator, công cụ tính điểm, điểm trung bình học tập, tính điểm đại học, gpa hệ 10, gpa hệ 4, xếp loại học lực, Đại học Sư phạm Hà Nội, HNUE, sinh viên, công cụ học tập, tính điểm online"
+    />
+    <meta name="author" content="MeoBeoDangiuu" />
+    <link rel="canonical" href="hnuegpacaculator.netlify.app" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Công Cụ Tính GPA Online Chính Xác - Điểm Trung Bình Học Tập"
+    />
+    <meta
+      property="og:description"
+      content="Dễ dàng tính điểm GPA hệ 10, hệ 4 và xếp loại học lực với công cụ online tiện lợi. Hỗ trợ sinh viên HNUE và các trường khác."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="hnuegpacaculator.netlify.app/logo.png" />
+    <meta property="og:image" content="hnuegpacaculator.netlify.app" />
+    <meta property="og:image:alt" content="Công cụ Tính GPA Online" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Công Cụ Tính GPA Online Chính Xác - Điểm Trung Bình Học Tập"
+    />
+    <meta
+      name="twitter:description"
+      content="Tính điểm GPA và xếp loại học lực nhanh chóng, chính xác. Công cụ hữu ích cho sinh viên."
+    />
+    <meta name="twitter:image" content="hnuegpacaculator.netlify.app/logo.png" />
+    <meta name="twitter:image:alt" content="Công cụ Tính GPA Online" />
+
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* CSS của bạn giữ nguyên ở đây */
+      body {
+        font-family: "Nunito", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        background-image: linear-gradient(45deg, #ff9a9e, #fad0c4 99%, #fad0c4);
+        min-height: 100dvh;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2 {
+        color: #2c3e50; /* Dark Blue-Gray */
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.6em;
+        border-bottom: 2px solid #3498db; /* Blue */
+        padding-bottom: 10px;
+        margin-top: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+        font-size: 0.95em;
+      }
+
+      th,
+      td {
+        border: 1px solid #e0e0e0;
+        padding: 12px 15px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      th {
+        background-color: #3498db; /* Blue */
+        color: white;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #e9f5ff;
+      }
+
+      td button {
+        margin-right: 6px;
+        padding: 6px 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.9em;
+        transition: background-color 0.2s ease;
+      }
+
+      .edit-btn {
+        background-color: #f39c12; /* Orange */
+        color: white;
+        width: 100%;
+      }
+      .edit-btn:hover {
+        background-color: #e67e22;
+      }
+
+      .delete-btn {
+        background-color: #e74c3c; /* Red */
+        color: white;
+        margin-top: 5px;
+        width: 100%;
+      }
+      .delete-btn:hover {
+        background-color: #c0392b;
+      }
+
+      #addSubjectBtn {
+        display: block;
+        margin: 0 auto 25px auto;
+        padding: 12px 25px;
+        background-color: #2ecc71; /* Green */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.2s ease;
+      }
+
+      #addSubjectBtn:hover {
+        background-color: #27ae60;
+      }
+
+      .results {
+        background-color: #ecf0f1; /* Light Gray */
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 25px;
+        border: 1px solid #bdc3c7; /* Silver */
+      }
+
+      .results p {
+        font-size: 1.1em;
+        margin: 10px 0;
+        color: #34495e; /* Wet Asphalt */
+      }
+
+      .results p span {
+        font-weight: bold;
+        color: #2980b9; /* Belize Hole Blue */
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 30px;
+        border: 1px solid #bdc3c7;
+        width: 90%;
+        max-width: 550px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .close-button {
+        color: #7f8c8d; /* Gray */
+        float: right;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .close-button:hover,
+      .close-button:focus {
+        color: #34495e; /* Darker Gray */
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #subjectForm div {
+        margin-bottom: 18px;
+      }
+
+      #subjectForm label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      #subjectForm input[type="text"],
+      #subjectForm input[type="number"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1em;
+      }
+      #subjectForm input[type="number"] {
+        appearance: textfield; /* For Firefox to hide spinners */
+      }
+      #subjectForm input[type="number"]::-webkit-outer-spin-button,
+      #subjectForm input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none; /* For Chrome, Safari, Edge to hide spinners */
+        margin: 0;
+      }
+
+      #subjectForm button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        margin-top: 10px;
+        margin-right: 10px;
+        transition: background-color 0.2s ease;
+      }
+
+      #subjectForm button[type="submit"] {
+        background-color: #3498db; /* Blue */
+        color: white;
+      }
+      #subjectForm button[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+
+      #subjectForm button[type="button"] {
+        background-color: #95a5a6; /* Concrete Gray */
+        color: white;
+      }
+      #subjectForm button[type="button"]:hover {
+        background-color: #7f8c8d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Công Cụ Tính GPA</h1>
+
+      <button id="addSubjectBtn">Thêm Môn Học Mới</button>
+
+      <h2>Danh Sách Môn Học</h2>
+      <table id="subjectsTable">
+        <thead>
+          <tr>
+            <th>Tên môn học</th>
+            <th>Số tín chỉ</th>
+            <th>Điểm chuyên cần</th>
+            <th>Điểm giữa kì</th>
+            <th>Điểm cuối kì</th>
+            <th>Điểm (Hệ 10)</th>
+            <th>Điểm (Hệ 4 - Chữ)</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="subjectsTableBody"></tbody>
+      </table>
+
+      <h2>Kết Quả Tổng Hợp</h2>
+      <div class="results">
+        <p>Tổng số tín chỉ đã đăng ký: <span id="totalCredits">0</span></p>
+        <p>GPA tổng (Hệ 10): <span id="gpa10">0.00</span></p>
+        <p>GPA tổng (Hệ 4): <span id="gpa4">0.00</span></p>
+        <p>Xếp loại học lực: <span id="academicStanding"></span></p>
+        <p>
+          Chụp photobooth và xem tarot vui vẻ tại
+          <a href="https://meobeostudio.com/" target="_blank">Đây nhaaa</a> .
+          Sản phẩm được phát triển miễn phí cho các bạn sinh viên Trường Đại học
+          Sư phạm Hà Nội. Góp ý hoặc báo lỗi vui lòng liên hệ
+          <a href="https://www.facebook.com/meobeodangiuu/" target="_blank"
+            >Facebook của tớ</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div id="subjectModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="modalCloseButton">&times;</span>
+        <h2 id="modalTitle">Thêm Môn Học Mới</h2>
+        <form id="subjectForm">
+          <input type="hidden" id="subjectId" />
+          <div>
+            <label for="subjectName">Tên môn học:</label>
+            <input type="text" id="subjectName" required />
+          </div>
+          <div>
+            <label for="credits">Số tín chỉ:</label>
+            <input type="number" id="credits" min="1" required />
+          </div>
+          <div>
+            <label for="attendanceScore">Điểm chuyên cần (0-10):</label>
+            <input
+              type="number"
+              id="attendanceScore"
+              min="0"
+              max="10"
+              step="0.1"
+              required
+            />
+          </div>
+          <div>
+            <label for="midtermScore">Điểm giữa kì (0-10):</label>
+            <input
+              type="number"
+              id="midtermScore"
+              min="0"
+              max="10"
+              step="0.1"
+              required
+            />
+          </div>
+          <div>
+            <label for="finalScore">Điểm cuối kì (0-10):</label>
+            <input
+              type="number"
+              id="finalScore"
+              min="0"
+              max="10"
+              step="0.1"
+              required
+            />
+          </div>
+          <button type="submit">Lưu Môn Học</button>
+          <button type="button" id="cancelModalBtn">Hủy</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript của bạn giữ nguyên ở đây
+      document.addEventListener("DOMContentLoaded", () => {
+        // DOM Elements
+        const addSubjectBtn = document.getElementById("addSubjectBtn");
+        const subjectModal = document.getElementById("subjectModal");
+        const modalCloseButton = document.getElementById("modalCloseButton");
+        const cancelModalBtn = document.getElementById("cancelModalBtn");
+        const modalTitle = document.getElementById("modalTitle");
+        const subjectForm = document.getElementById("subjectForm");
+        const subjectIdInput = document.getElementById("subjectId");
+        const subjectNameInput = document.getElementById("subjectName");
+        const creditsInput = document.getElementById("credits");
+        const attendanceScoreInput = document.getElementById("attendanceScore");
+        const midtermScoreInput = document.getElementById("midtermScore");
+        const finalScoreInput = document.getElementById("finalScore");
+        const subjectsTableBody = document.getElementById("subjectsTableBody");
+        const totalCreditsSpan = document.getElementById("totalCredits");
+        const gpa10Span = document.getElementById("gpa10");
+        const gpa4Span = document.getElementById("gpa4");
+        const academicStandingSpan =
+          document.getElementById("academicStanding");
+
+        let subjects = [];
+        let editingSubjectId = null;
+
+        // --- LocalStorage Functions ---
+        function loadSubjectsFromLocalStorage() {
+          const storedSubjects = localStorage.getItem("gpaSubjects");
+          if (storedSubjects) {
+            subjects = JSON.parse(storedSubjects);
+          }
+        }
+
+        function saveSubjectsToLocalStorage() {
+          localStorage.setItem("gpaSubjects", JSON.stringify(subjects));
+        }
+
+        // --- Calculation Functions ---
+        function calculateSubjectScore10(attendance, midterm, final) {
+          const score =
+            parseFloat(attendance) * 0.1 +
+            parseFloat(midterm) * 0.3 +
+            parseFloat(final) * 0.6;
+          return Math.round(score * 10) / 10; // Round to 1 decimal place
+        }
+
+        function convertScore10ToLetter(score10) {
+          if (score10 >= 8.5) return "A";
+          if (score10 >= 7.8) return "B+";
+          if (score10 >= 7.0) return "B";
+          if (score10 >= 6.3) return "C+";
+          if (score10 >= 5.5) return "C";
+          if (score10 >= 4.8) return "D+";
+          if (score10 >= 4.0) return "D";
+          return "F";
+        }
+
+        function convertLetterToScore4(letterScore) {
+          switch (letterScore) {
+            case "A":
+              return 4.0;
+            case "B+":
+              return 3.5;
+            case "B":
+              return 3.0;
+            case "C+":
+              return 2.5;
+            case "C":
+              return 2.0;
+            case "D+":
+              return 1.5;
+            case "D":
+              return 1.0;
+            case "F":
+              return 0.0;
+            default:
+              return 0.0;
+          }
+        }
+
+        function calculateOverallResults() {
+          let currentTotalCredits = 0;
+          let weightedSum10 = 0;
+          let weightedSum4 = 0;
+
+          if (subjects.length === 0) {
+            totalCreditsSpan.textContent = "0";
+            gpa10Span.textContent = "0.00";
+            gpa4Span.textContent = "0.00";
+            academicStandingSpan.textContent = ""; // Trống
+            return;
+          }
+
+          subjects.forEach((subject) => {
+            const creditsVal = parseInt(subject.credits);
+            const score10 = calculateSubjectScore10(
+              subject.attendanceScore,
+              subject.midtermScore,
+              subject.finalScore
+            );
+            const letterScore = convertScore10ToLetter(score10);
+            const score4 = convertLetterToScore4(letterScore);
+
+            currentTotalCredits += creditsVal;
+            weightedSum10 += score10 * creditsVal;
+            weightedSum4 += score4 * creditsVal;
+          });
+
+          const overallGPA10 =
+            currentTotalCredits > 0 ? weightedSum10 / currentTotalCredits : 0;
+          const overallGPA4 =
+            currentTotalCredits > 0 ? weightedSum4 / currentTotalCredits : 0;
+
+          totalCreditsSpan.textContent = currentTotalCredits;
+          gpa10Span.textContent = overallGPA10.toFixed(2);
+          gpa4Span.textContent = overallGPA4.toFixed(2);
+          academicStandingSpan.textContent =
+            determineAcademicStanding(overallGPA4);
+        }
+
+        function determineAcademicStanding(gpa4) {
+          if (gpa4 >= 3.6) return "Xuất sắc";
+          if (gpa4 >= 3.2) return "Giỏi";
+          if (gpa4 >= 2.5) return "Khá";
+          if (gpa4 >= 2.0) return "Trung bình";
+          return "Yếu"; // Applies if gpa4 < 2.0, including 0.00 if subjects exist
+        }
+
+        // --- Rendering Functions ---
+        function renderSubjectsTable() {
+          subjectsTableBody.innerHTML = ""; // Clear existing rows
+
+          if (subjects.length === 0) {
+            const row = subjectsTableBody.insertRow();
+            const cell = row.insertCell();
+            cell.colSpan = 8;
+            cell.textContent = "Chưa có môn học nào được thêm.";
+            cell.style.textAlign = "center";
+            cell.style.padding = "20px";
+            return;
+          }
+
+          subjects.forEach((subject) => {
+            const row = subjectsTableBody.insertRow();
+            row.setAttribute("data-id", subject.id);
+
+            row.insertCell().textContent = subject.name;
+            row.insertCell().textContent = subject.credits;
+            row.insertCell().textContent = subject.attendanceScore;
+            row.insertCell().textContent = subject.midtermScore;
+            row.insertCell().textContent = subject.finalScore;
+
+            const score10 = calculateSubjectScore10(
+              subject.attendanceScore,
+              subject.midtermScore,
+              subject.finalScore
+            );
+            row.insertCell().textContent = score10.toFixed(1);
+            row.insertCell().textContent = convertScore10ToLetter(score10);
+
+            const actionsCell = row.insertCell();
+            actionsCell.style.textAlign = "center";
+            const editButton = document.createElement("button");
+            editButton.textContent = "Sửa";
+            editButton.classList.add("edit-btn");
+            editButton.onclick = () => openEditModal(subject.id);
+            actionsCell.appendChild(editButton);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Xóa";
+            deleteButton.classList.add("delete-btn");
+            deleteButton.onclick = () => deleteSubject(subject.id);
+            actionsCell.appendChild(deleteButton);
+          });
+        }
+
+        // --- Modal Functions ---
+        function openAddModal() {
+          editingSubjectId = null;
+          modalTitle.textContent = "Thêm Môn Học Mới";
+          subjectForm.reset();
+          subjectIdInput.value = "";
+          subjectModal.style.display = "block";
+          subjectNameInput.focus();
+        }
+
+        function openEditModal(subjectId) {
+          const subjectToEdit = subjects.find((s) => s.id === subjectId);
+          if (!subjectToEdit) return;
+
+          editingSubjectId = subjectId;
+          modalTitle.textContent = "Sửa Thông Tin Môn Học";
+          subjectIdInput.value = subjectToEdit.id;
+          subjectNameInput.value = subjectToEdit.name;
+          creditsInput.value = subjectToEdit.credits;
+          attendanceScoreInput.value = subjectToEdit.attendanceScore;
+          midtermScoreInput.value = subjectToEdit.midtermScore;
+          finalScoreInput.value = subjectToEdit.finalScore;
+          subjectModal.style.display = "block";
+          subjectNameInput.focus();
+        }
+
+        function closeModal() {
+          subjectModal.style.display = "none";
+          subjectForm.reset();
+        }
+
+        // --- Subject Management ---
+        function handleSubjectFormSubmit(event) {
+          event.preventDefault();
+
+          const name = subjectNameInput.value.trim();
+          const credits = parseInt(creditsInput.value);
+          const attendanceScore = parseFloat(attendanceScoreInput.value);
+          const midtermScore = parseFloat(midtermScoreInput.value);
+          const finalScore = parseFloat(finalScoreInput.value);
+
+          if (!name) {
+            alert("Vui lòng nhập tên môn học.");
+            subjectNameInput.focus();
+            return;
+          }
+          if (isNaN(credits) || credits <= 0) {
+            alert("Số tín chỉ phải là một số nguyên dương.");
+            creditsInput.focus();
+            return;
+          }
+          if (
+            isNaN(attendanceScore) ||
+            attendanceScore < 0 ||
+            attendanceScore > 10
+          ) {
+            alert("Điểm chuyên cần phải là số từ 0 đến 10.");
+            attendanceScoreInput.focus();
+            return;
+          }
+          if (isNaN(midtermScore) || midtermScore < 0 || midtermScore > 10) {
+            alert("Điểm giữa kì phải là số từ 0 đến 10.");
+            midtermScoreInput.focus();
+            return;
+          }
+          if (isNaN(finalScore) || finalScore < 0 || finalScore > 10) {
+            alert("Điểm cuối kì phải là số từ 0 đến 10.");
+            finalScoreInput.focus();
+            return;
+          }
+
+          if (editingSubjectId) {
+            const subjectIndex = subjects.findIndex(
+              (s) => s.id === editingSubjectId
+            );
+            if (subjectIndex > -1) {
+              subjects[subjectIndex] = {
+                id: editingSubjectId,
+                name,
+                credits,
+                attendanceScore,
+                midtermScore,
+                finalScore,
+              };
+            }
+          } else {
+            const newSubject = {
+              id: Date.now(),
+              name,
+              credits,
+              attendanceScore,
+              midtermScore,
+              finalScore,
+            };
+            subjects.push(newSubject);
+          }
+
+          saveSubjectsToLocalStorage();
+          renderSubjectsTable();
+          calculateOverallResults();
+          closeModal();
+          editingSubjectId = null;
+        }
+
+        function deleteSubject(subjectId) {
+          if (confirm("Bạn có chắc chắn muốn xóa môn học này?")) {
+            subjects = subjects.filter((s) => s.id !== subjectId);
+            saveSubjectsToLocalStorage();
+            renderSubjectsTable();
+            calculateOverallResults();
+          }
+        }
+
+        // --- Event Listeners ---
+        addSubjectBtn.addEventListener("click", openAddModal);
+        modalCloseButton.addEventListener("click", closeModal);
+        cancelModalBtn.addEventListener("click", closeModal);
+        subjectForm.addEventListener("submit", handleSubjectFormSubmit);
+
+        // Close modal if user clicks outside of modal content
+        window.addEventListener("click", (event) => {
+          if (event.target == subjectModal) {
+            closeModal();
+          }
+        });
+
+        // --- Initial Load ---
+        function initializeApp() {
+          loadSubjectsFromLocalStorage();
+          renderSubjectsTable();
+          calculateOverallResults();
+        }
+
+        initializeApp();
+      });
+    </script>
+  </body>
+</html>
